@@ -1,5 +1,6 @@
 package com.eposp.misee;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,18 +12,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.cropper.ui.AssetsAct;
 import com.eposp.bean.Person;
 import com.eposp.bean.UserB;
+import com.jni.samples.HelloJniTest;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.listener.SaveListener;
 
 public class MainActivity extends AppCompatActivity {
-
+Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mContext=MainActivity.this;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -99,6 +103,15 @@ public class MainActivity extends AppCompatActivity {
 //
 //        });
     }
+    public void AssetsClick(View view){
+        intentAssets();
+    }
+    private void intentAssets(){
+//        Intent intent =new Intent (mContext, AssetsAct.class);//
+//        startActivity(intent);
+        Toast.makeText(mContext, HelloJniTest.getPassFromJNI(),Toast.LENGTH_LONG).show();//获取aar文件中jni测试
+    }
+
     public void toast(String toast) {
         Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
     };

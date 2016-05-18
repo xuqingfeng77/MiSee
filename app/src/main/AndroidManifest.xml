@@ -14,6 +14,7 @@
     <!--允许读取手机状态 用于创建BmobInstallation-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <application
+        android:name=".CustomApplcation"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -29,6 +30,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.cropper.ui.ActivityCapture"
+            android:screenOrientation="landscape"/>
+        <activity android:name="com.cropper.ui.AssetsAct"/>
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="CDDkFEkpHDQRSchPtenWXXGk" />
+        <meta-data
+            android:name="TD_APP_ID"
+            android:value="272D38ECF9647AB99354D54F60D5920C" />
     </application>
 
 </manifest>
